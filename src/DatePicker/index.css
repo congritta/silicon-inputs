@@ -1,0 +1,112 @@
+.SiliconDatePicker {
+  position: relative;
+  width: 100%;
+  min-width: 100px;
+}
+
+/* Date input wrapper */
+
+.siliconCalendarDatePane {
+  cursor: pointer;
+}
+
+/* Calendar wrapper */
+
+.siliconCalendarWrapper {
+  position: absolute;
+  left: 0;
+  top: calc(100% + var(--gap-between-input-wrapper-and-calendar));
+  width: 100%;
+  background: #fff;
+  transition: var(--transition-duration);
+  overflow: auto;
+  overscroll-behavior: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .siliconCalendarWrapper {
+    background: #000;
+    color: #fff
+  }
+}
+
+.siliconCalendarWrapper[class*="isRemovedFromLayout"] {
+  display: none;
+}
+
+.siliconCalendarWrapper[class*="isRevealedFromBottom"] {
+  top: unset;
+  bottom: calc(100% + var(--gap-between-input-wrapper-and-calendar));
+}
+
+.siliconCalendarWrapper[class*="isRevealedFromRight"] {
+  left: unset;
+  right: 0;
+  transform: none;
+}
+
+.SiliconDatePicker:not([class*="isOpened"]) > .siliconCalendarWrapper {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10%)
+}
+
+.SiliconDatePicker:not([class*="isOpened"]) > .siliconCalendarWrapper[class*="isRevealedFromBottom"] {
+  transform: translateY(-10%)
+}
+
+/* Time period selector */
+
+.siliconTimePeriodSelector {
+  display: flex;
+  align-items: center;
+}
+
+.siliconTimePeriodSelector > .siliconArrowButton > svg {
+  width: 1em;
+  height: 1em;
+}
+
+.siliconTimePeriodSelector > .siliconArrowButton:first-child > svg {
+  transform: rotateZ(180deg)
+}
+
+.siliconTimePeriodSelector > span {
+  display: block;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Days grid */
+
+.siliconCalendarDaysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1px;
+}
+
+.siliconCalendarDay {
+  text-align: center;
+  font-size: 10pt;
+}
+
+.siliconCalendarDay[class*="isHoverable"] {
+  cursor: pointer;
+}
+
+.siliconCalendarDay[class*="isSelected"] {
+  background: #000;
+  color: #fff
+}
+
+@media (prefers-color-scheme: dark) {
+  .siliconCalendarDay[class*="isSelected"] {
+    background: #fff
+  }
+}
+
+.siliconCalendarDaysGrid > .siliconCalendarDay:nth-child(-n+7) {
+  font-weight: bold;
+  font-size: 12pt
+}

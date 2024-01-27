@@ -1,0 +1,10 @@
+.silicon-input {
+  display: block;
+  width: 100%;
+  appearance: none;
+  font: inherit;
+  border: none;
+  outline: none;
+  color: inherit;
+  background: transparent;
+}

@@ -1,0 +1,31 @@
+.silicon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  appearance: none;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+
+.silicon-button > * {
+  flex-shrink: 0;
+}
+
+.silicon-button > svg {
+  width: 1em
+}
+
+.silicon-button > span {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
